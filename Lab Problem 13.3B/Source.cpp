@@ -16,9 +16,7 @@ int main() {
         cout << "Enter a date or Q to quit: ";
         getline(cin, input);
 
-        if (input == "Q" || input == "q") {
-            break;
-        }
+        if (input == "Q" || input == "q") break;
 
         sscanf_s(input.c_str(), "%d %d %d", &month, &day, &year);
 
@@ -42,11 +40,8 @@ int main() {
             }
             cout << " " << day << ", " << year << endl;
         }
-        else {
-            cout << "Invalid date." << endl;
-        }
+        else cout << "Invalid date." << endl;
     }
-
     return 0;
 }
 
@@ -65,27 +60,16 @@ int dayOfWeek(int month, int day, int year) {
     int J = modifiedYear / 100;
     int h = (day + (13 * (modifiedMonth + 1)) / 5 + K + (K / 4) + (J / 4) - (2 * J)) % 7;
 
-    if (h < 0) {
-        h += 7;
-    }
-
+    if (h < 0) h += 7;
     return h;
 }
 
 int getModifiedMonth(int month, int year) {
-    if (month == 1 || month == 2) {
-        return month + 12;
-    }
-    else {
-        return month;
-    }
+    if (month == 1 || month == 2) return month + 12;
+    else return month;
 }
 
 int getModifiedYear(int month, int year) {
-    if (month == 1 || month == 2) {
-        return year - 1;
-    }
-    else {
-        return year;
-    }
+    if (month == 1 || month == 2) return year - 1;
+    else return year;
 }
